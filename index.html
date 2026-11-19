@@ -201,6 +201,9 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 .qa .a .hl{color:var(--pink)}
 .maps{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
 .maps a{display:block;text-align:center;background:var(--pink);color:#fff;font-weight:700;font-size:16.5px;padding:13px;border-radius:12px}
+.course .tags{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;position:relative}
+.course .tags li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:15px;font-weight:700;color:var(--navy)}
+.course .c-sub{font-size:15.5px;font-weight:700;color:var(--pink);margin-bottom:8px;position:relative}
 </style>
 </head>
 <body>
@@ -250,15 +253,15 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
     <h2>우리 아이에게 맞는 과정</h2>
     <div class="course">
       <div class="course-top"><span class="floor">2층</span><h3>초중 수학</h3></div><span class="bg">MATH</span>
-      <p>학년별 레벨 수업, 서술형 수업 집중, 오답노트</p>
+      <ul class="tags"><li>학년별 레벨 수업</li><li>서술형 수업 집중</li><li>오답노트</li></ul>
     </div>
     <div class="course">
       <div class="course-top"><span class="floor">3층</span><h3>초중 영어</h3></div><span class="bg">ENGLISH</span>
-      <p>파닉스, 원서 정독·다독, 세인노트 문법 정리, 중등 내신 대비</p>
+      <ul class="tags"><li>파닉스</li><li>원서 정독·다독</li><li>세인노트 문법</li><li>중등 내신 대비</li></ul>
     </div>
     <div class="course">
       <div class="course-top"><span class="floor">5층</span><h3>고등열정관</h3></div><span class="bg">HIGH</span>
-      <p>고등 영어·수학, 장유고·삼문고 내신 전문</p>
+      <p class="c-sub">장유고·삼문고 내신 전문</p><ul class="tags"><li>영어</li><li>수학</li><li>내신</li><li>수능</li></ul>
     </div>
   </div>
 </section>
