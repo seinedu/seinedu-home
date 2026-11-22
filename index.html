@@ -234,9 +234,12 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 .fee-reg{font-size:15px;color:var(--gray);margin-top:24px;text-align:center}
 .head-blog{background:#03C75A;color:#fff;font-weight:900;font-size:14px;padding:6px 12px;border-radius:10px}
 .topnav{border-top:1px solid var(--line)}
-.topnav .wrap{height:auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px 4px;padding-top:8px;padding-bottom:10px}
-.topnav a{text-align:center;font-size:15px;font-weight:700;padding:9px 0;white-space:nowrap;letter-spacing:-.5px}
-.topnav a.on{color:var(--pink)}
+.topnav .wrap{height:auto;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-top:8px;padding-bottom:8px}
+.topnav .wrap::-webkit-scrollbar{display:none}
+.topnav a{flex:none;text-align:center;font-size:15px;font-weight:700;padding:9px 12px;white-space:nowrap;letter-spacing:-.5px;background:var(--bg);border-radius:999px}
+.topnav{position:relative}
+.topnav:after{content:"";position:absolute;right:0;top:0;bottom:0;width:28px;background:linear-gradient(to right,rgba(255,255,255,0),#fff);pointer-events:none}
+.topnav a.on{color:#fff;background:var(--pink)}
 </style>
 </head>
 <body>
