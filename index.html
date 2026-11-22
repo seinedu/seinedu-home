@@ -215,7 +215,9 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 .notice-date{font-size:15px;color:var(--gray);font-weight:700}
 .notice-title{font-size:23px;font-weight:900;margin:6px 0 10px}
 .notice-text{font-size:17px;line-height:1.7;margin-bottom:16px}
-.notice-imgs img{width:100%;display:block;border-radius:12px;margin-bottom:12px;cursor:zoom-in}
+.notice-imgs img{width:100%;display:block;border-radius:12px;cursor:zoom-in;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.notice-imgs .sep{display:flex;align-items:center;gap:12px;margin:40px 0;color:var(--pink);font-size:14px;font-weight:700}
+.notice-imgs .sep:before,.notice-imgs .sep:after{content:"";flex:1;height:1px;background:var(--line)}
 </style>
 </head>
 <body>
@@ -383,7 +385,7 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
   <div class="notice-date">2026.11.22</div>
   <h2 class="notice-title">2027 새학기 오픈반 안내</h2>
   <p class="notice-text">12월 7일(월)부터 2027 새학기 반이 개강합니다. 레벨테스트 상담은 아래 버튼으로 예약해주세요.</p>
-  <div class="notice-imgs"><img loading="lazy" src="img/notice-2027open-1.jpg" alt="2027 새학기 오픈반 포스터 1" onclick="zoom(this.src)"><img loading="lazy" src="img/notice-2027open-2.jpg" alt="2027 새학기 오픈반 포스터 2" onclick="zoom(this.src)"><img loading="lazy" src="img/notice-2027open-3.jpg" alt="2027 새학기 오픈반 포스터 3" onclick="zoom(this.src)"></div>
+  <div class="notice-imgs"><img loading="lazy" src="img/notice-2027open-1.jpg" alt="2027 새학기 오픈반 포스터 1" onclick="zoom(this.src)"><div class="sep">●</div><img loading="lazy" src="img/notice-2027open-2.jpg" alt="2027 새학기 오픈반 포스터 2" onclick="zoom(this.src)"><div class="sep">●</div><img loading="lazy" src="img/notice-2027open-3.jpg" alt="2027 새학기 오픈반 포스터 3" onclick="zoom(this.src)"></div>
 </article>
   </div></div>
 </div>
