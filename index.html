@@ -14,8 +14,8 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:560px;margin:0 auto;padding:0 20px}
 
 /* 헤더 */
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+header{position:relative;z-index:20;background:#fff;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header>.wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
 .logo{font-weight:900;font-size:19px;letter-spacing:-.5px}
 .logo b{color:var(--pink)}
 .head-call{font-size:16px;font-weight:700;color:var(--pink);border:1.5px solid var(--pink);border-radius:999px;padding:6px 14px}
@@ -232,6 +232,11 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 .fee td b{color:var(--pink);font-weight:900}
 .fee-note{font-size:15px;color:var(--gray);margin-top:4px}
 .fee-reg{font-size:15px;color:var(--gray);margin-top:24px;text-align:center}
+.head-blog{background:#03C75A;color:#fff;font-weight:900;font-size:14px;padding:6px 12px;border-radius:10px}
+.topnav{border-top:1px solid var(--line)}
+.topnav .wrap{height:auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px 4px;padding-top:8px;padding-bottom:10px}
+.topnav a{text-align:center;font-size:15px;font-weight:700;padding:9px 0;white-space:nowrap;letter-spacing:-.5px}
+.topnav a.on{color:var(--pink)}
 </style>
 </head>
 <body>
@@ -239,8 +244,9 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 <header>
   <div class="wrap">
     <a href="#top" class="logo"><b>세인</b> 영어수학</a>
-    <button class="menu-btn" aria-label="메뉴" onclick="openMenu()"><i></i><i></i><i></i></button>
+    <a class="head-blog" href="https://blog.naver.com/sein_edu" target="_blank" rel="noopener">blog</a>
   </div>
+  <nav class="topnav"><div class="wrap"><a href="#philosophy">철학</a><a href="#notice">공지사항</a><a href="#reviews">리얼후기</a><a href="#elementary">초등과정</a><a href="#secondary">중고등과정</a><a href="#analysis">내신 분석</a><a href="#honor">명예의 전당</a><a href="#qna">Q&amp;A</a><a href="#tuition">수강료</a><a href="#location">오시는 길</a></div></nav>
 </header>
 
 <div class="menu" id="menu" onclick="if(event.target===this)closeMenu()">
@@ -582,6 +588,7 @@ function closeMenu(){document.getElementById('menu').classList.remove('open')}
 var views=['philosophy','notice','reviews','elementary','secondary','analysis','honor','qna','tuition'];
 function route(){
   var h=location.hash.replace('#','');
+  document.querySelectorAll('.topnav a').forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+h)});
   var isView=views.indexOf(h)>-1;
   document.getElementById('home').style.display=isView?'none':'block';
   document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('show',p.id==='v-'+h)});
