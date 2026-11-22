@@ -211,6 +211,11 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 .ab-steps li>span{flex:none;width:52px;height:52px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900;font-size:14px;letter-spacing:-.5px;display:flex;align-items:center;justify-content:center}
 .ab-steps b{font-size:17px;display:block;margin-bottom:4px}
 .ab-steps p{font-size:15.5px;color:var(--gray);line-height:1.7}
+.notice{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:28px}
+.notice-date{font-size:15px;color:var(--gray);font-weight:700}
+.notice-title{font-size:23px;font-weight:900;margin:6px 0 10px}
+.notice-text{font-size:17px;line-height:1.7;margin-bottom:16px}
+.notice-imgs img{width:100%;display:block;border-radius:12px;margin-bottom:12px;cursor:zoom-in}
 </style>
 </head>
 <body>
@@ -373,7 +378,14 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 </div>
 <div class="page" id="v-notice">
   <div class="page-head"><div class="wrap"><a class="back" href="#top">← 홈</a><h1>공지사항</h1></div></div>
-  <div class="page-body"><div class="wrap"><div class="ready">내용을 준비하고 있어요.</div></div></div>
+  <div class="page-body"><div class="wrap">
+<article class="notice">
+  <div class="notice-date">2026.11.22</div>
+  <h2 class="notice-title">2027 새학기 오픈반 안내</h2>
+  <p class="notice-text">12월 7일(월)부터 2027 새학기 반이 개강합니다. 레벨테스트 상담은 아래 버튼으로 예약해주세요.</p>
+  <div class="notice-imgs"><img loading="lazy" src="img/notice-2027open-1.jpg" alt="2027 새학기 오픈반 포스터 1" onclick="zoom(this.src)"><img loading="lazy" src="img/notice-2027open-2.jpg" alt="2027 새학기 오픈반 포스터 2" onclick="zoom(this.src)"><img loading="lazy" src="img/notice-2027open-3.jpg" alt="2027 새학기 오픈반 포스터 3" onclick="zoom(this.src)"></div>
+</article>
+  </div></div>
 </div>
 <div class="page" id="v-reviews">
   <div class="page-head"><div class="wrap"><a class="back" href="#top">← 홈</a><h1>리얼후기</h1></div></div>
