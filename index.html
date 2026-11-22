@@ -223,6 +223,15 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 .menu-panel a.menu-blog:after{content:""}
 .blog-btn{display:block;text-align:center;margin-top:28px;background:var(--pink-soft);color:var(--pink);font-weight:900;font-size:17px;padding:16px;border-radius:14px}
 .map-img{width:100%;display:block;border-radius:14px;margin-bottom:16px;cursor:zoom-in}
+.fee{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:14px}
+.fee-h{background:var(--baby);font-weight:900;font-size:19px;padding:14px 18px}
+.fee table{width:100%;border-collapse:collapse}
+.fee th,.fee td{padding:15px 18px;font-size:17px;border-top:1px solid var(--line)}
+.fee th{text-align:left;font-weight:700}
+.fee td{text-align:right;font-weight:700}
+.fee td b{color:var(--pink);font-weight:900}
+.fee-note{font-size:15px;color:var(--gray);margin-top:4px}
+.fee-reg{font-size:15px;color:var(--gray);margin-top:24px;text-align:center}
 </style>
 </head>
 <body>
@@ -245,6 +254,7 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
     <a href="#analysis" onclick="closeMenu()">내신 분석</a>
     <a href="#honor" onclick="closeMenu()">명예의 전당</a>
     <a href="#qna" onclick="closeMenu()">Q&amp;A</a>
+    <a href="#tuition" onclick="closeMenu()">수강료</a>
     <a href="#location" onclick="closeMenu()">오시는 길</a>
     <a class="menu-blog" href="https://blog.naver.com/sein_edu" target="_blank" rel="noopener">세인 블로그 바로가기 ↗</a>
   </div>
@@ -534,6 +544,27 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 </div></div>
 </div>
 
+<div class="page" id="v-tuition">
+  <div class="page-head"><div class="wrap"><a class="back" href="#top">← 홈</a><h1>수강료</h1></div></div>
+  <div class="page-body"><div class="wrap">
+<div class="fee">
+  <div class="fee-h">초등</div>
+  <table><tr><th>영어</th><td>240,000원</td></tr><tr><th>수학</th><td>220,000원</td></tr></table>
+</div>
+<div class="fee">
+  <div class="fee-h">중등</div>
+  <table><tr><th>영어</th><td>260,000원</td></tr><tr><th>수학</th><td>260,000원</td></tr><tr><th>영어 + 수학</th><td><b>500,000원</b></td></tr></table>
+</div>
+<div class="fee">
+  <div class="fee-h">고등</div>
+  <table><tr><th>영어</th><td>310,000원</td></tr><tr><th>수학</th><td>310,000원</td></tr><tr><th>영어 + 수학</th><td><b>600,000원</b></td></tr></table>
+</div>
+<p class="fee-note">월 수강료 기준입니다.</p>
+<p class="fee-reg">학원등록번호 제3326호</p>
+<a class="blog-btn" href="https://blog.naver.com/sein_edu" target="_blank" rel="noopener">세인 블로그 바로가기 ↗</a>
+  </div></div>
+</div>
+
 <footer>세인 영어수학 · 김해시 능동로 149번길 12</footer>
 
 <div class="bottom-bar">
@@ -548,7 +579,7 @@ footer{text-align:center;font-size:15px;color:var(--gray);padding:28px 0 12px}
 <script>
 function openMenu(){document.getElementById('menu').classList.add('open')}
 function closeMenu(){document.getElementById('menu').classList.remove('open')}
-var views=['philosophy','notice','reviews','elementary','secondary','analysis','honor','qna'];
+var views=['philosophy','notice','reviews','elementary','secondary','analysis','honor','qna','tuition'];
 function route(){
   var h=location.hash.replace('#','');
   var isView=views.indexOf(h)>-1;
