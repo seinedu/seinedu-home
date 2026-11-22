@@ -563,5 +563,12 @@ window.addEventListener('hashchange',route);route();
 </script>
 <div id="zoom" class="zoom" onclick="this.classList.remove('on')"><img alt=""></div>
 <script>function zoom(src){var z=document.getElementById('zoom');z.querySelector('img').src=src;z.classList.add('on')}</script>
+<script data-goatcounter="https://seinedu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+window.addEventListener('hashchange',function(){
+  var h=location.hash.replace('#','');
+  if(window.goatcounter&&window.goatcounter.count&&h){window.goatcounter.count({path:'/'+h,title:document.title})}
+});
+</script>
 </body>
 </html>
