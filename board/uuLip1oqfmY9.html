@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>세인보드 · 박성현 11월 리포트</title>
+<meta property="og:title" content="[세인 영어수학] 박성현 11월 학습리포트">
+<meta property="og:description" content="이번 달 월말평가 결과를 확인하세요.">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff1f8e;--pink-d:#d6006f;--pink-l:#ffe3f1;--pink-xl:#fff4fa;--ink:#1d1d24;--sub:#6b6b78;--line:#ececf1;--bg:#f7f7fa;--ok:#18a058;--warn:#ff8a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.app{max-width:440px;margin:0 auto;min-height:100vh;background:#fff;padding-bottom:30px}
+header{background:var(--pink);color:#fff;padding:18px 20px 22px;border-radius:0 0 24px 24px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:20px;letter-spacing:-.5px}
+.logo small{font-weight:500;font-size:12px;opacity:.85;margin-left:6px}
+.badge{font-size:11px;background:rgba(255,255,255,.22);padding:4px 9px;border-radius:20px}
+.student{margin-top:16px;display:flex;align-items:center;gap:12px}
+.avatar{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--pink);display:grid;place-items:center;font-weight:900;font-size:18px}
+.student b{font-size:17px}
+.student span{display:block;font-size:12px;opacity:.9;margin-top:2px}
+.subj{margin-top:16px;display:flex;background:rgba(255,255,255,.2);border-radius:12px;padding:4px}
+.subj button{flex:1;border:0;background:transparent;color:#fff;font:inherit;font-weight:700;font-size:15px;padding:9px;border-radius:9px;cursor:pointer}
+.subj button.on{background:#fff;color:var(--pink)}
+main{padding:18px 16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.card h3{font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.card h3 small{font-size:12px;color:var(--sub);font-weight:500}
+.big{font-size:40px;font-weight:900;color:var(--pink);line-height:1;margin-bottom:6px}
+.big small{font-size:15px;color:var(--sub);font-weight:500}
+.bar{margin:12px 0}
+.bar .lab{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+.bar .lab b{font-weight:700}
+.track{height:10px;background:var(--pink-l);border-radius:6px;overflow:hidden}
+.fill{height:100%;background:var(--pink);border-radius:6px}
+.fill.weak{background:var(--warn)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:6px}
+.tag.weak{background:#fff1e0;color:var(--warn)}
+.tag.strong{background:#e6f6ed;color:var(--ok)}
+.note{background:var(--pink-xl);border-radius:12px;padding:13px;font-size:14px;line-height:1.65;white-space:pre-wrap}
+.foot{text-align:center;font-size:12px;color:#9a9aa6;margin-top:10px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="top"><div class="logo">세인보드<small>세인 영어수학</small></div><div class="badge" id="badge"></div></div>
+    <div class="student"><div class="avatar" id="av"></div><div><b id="nm"></b><span id="cls"></span></div></div>
+    <div class="subj" id="subj"></div>
+  </header>
+  <main id="view"></main>
+  <div class="foot">세인 영어수학 · 314-0907</div>
+</div>
+<script>
+const D={"name": "박성현", "month": 11, "subjects": [{"subj": "영어", "cls": "cambridge", "areas": [["Reading", 90], ["Speaking", 90], ["Voca", 95]], "comment": ""}]};
+let i=0;
+const $=id=>document.getElementById(id);
+$("badge").textContent=D.month+"월 리포트";
+$("nm").textContent=D.name;
+$("av").textContent=D.name.slice(-2,-1)||D.name[0];
+const sb=$("subj");
+if(D.subjects.length<2) sb.style.display="none";
+D.subjects.forEach((s,k)=>{const b=document.createElement("button");b.textContent=s.subj;b.onclick=()=>{i=k;render()};sb.appendChild(b)});
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function render(){
+  const s=D.subjects[i];
+  [...sb.children].forEach((b,k)=>b.classList.toggle("on",k===i));
+  $("cls").textContent=s.subj+" · "+s.cls+"반";
+  const v=s.areas.map(a=>a[1]), avg=Math.round(v.reduce((x,y)=>x+y,0)/v.length);
+  const mn=Math.min(...v), mx=Math.max(...v), diff=mn!==mx;
+  $("view").innerHTML=`
+  <div class="card">
+    <h3>${D.month}월 월말평가 <small>영역별 100점</small></h3>
+    <div class="big">${avg}<small> 평균</small></div>
+    ${s.areas.map(([n,sc])=>`<div class="bar"><div class="lab"><span>${esc(n)}${diff&&sc===mn?'<span class="tag weak">보완</span>':''}${diff&&sc===mx?'<span class="tag strong">강점</span>':''}</span><b>${sc}점</b></div><div class="track"><div class="fill ${diff&&sc===mn?'weak':''}" style="width:${sc}%"></div></div></div>`).join("")}
+  </div>
+  ${s.comment?`<div class="card"><h3>선생님 코멘트</h3><div class="note">${esc(s.comment)}</div></div>`:""}`;
+}
+render();
+</script>
+</body>
+</html>
