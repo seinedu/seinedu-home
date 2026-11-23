@@ -48,10 +48,15 @@ main{padding:18px 16px}
 .hwsum div.m{background:#fff1e0}
 .hwsum b{display:block;font-size:22px;font-weight:900;color:var(--ok)}
 .hwsum .m b{color:var(--warn)}
+.hwsum div.l{background:#eef3ff}
+.hwsum .l b{color:#2f6bff}
+.hwr .st.late{color:#2f6bff}
 .hwsum span{font-size:12px;color:var(--sub)}
 .period{font-size:12px;color:var(--sub);margin:4px 0 2px}
 .hwr{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.55}
 .hwr:last-child{border:0}
+.hwr.att{display:flex;justify-content:space-between;align-items:center;padding:9px 0}
+.hwr.att .d{margin:0}
 .hwr .d{font-weight:700;font-size:13px;margin-bottom:2px}
 .hwr .sj{font-size:11px;font-weight:700;background:var(--pink-l);color:var(--pink-d);padding:1px 6px;border-radius:5px;margin-left:4px}
 .hwr .st{font-size:13px;font-weight:700}
@@ -71,7 +76,7 @@ main{padding:18px 16px}
   <div class="foot">세인 영어수학 · 314-0907</div>
 </div>
 <script>
-const D={"name": "윤호", "month": 11, "hw": [["11월 11일", "영어", "단어 미통과", "miss"], ["11월 12일", "영어", "클카 5-10 단어", "miss"], ["11월 18일", "영어", "단어장 숙제", "miss"]], "subjects": [{"subj": "영어", "cls": "comubia", "areas": [["Reading", 90], ["Grammar", 85], ["단어", 70]], "comment": ""}]};
+const D={"name": "윤호", "month": 11, "hw": [["11월 11일", "영어", "단어 미통과", "miss"], ["11월 12일", "영어", "클카 5-10 단어", "miss"], ["11월 18일", "영어", "단어장 숙제", "miss"]], "att": [["11월 10일", "late"], ["11월 17일", "late"]], "subjects": [{"subj": "영어", "cls": "comubia", "areas": [["Reading", 90], ["Grammar", 85], ["단어", 70]], "comment": ""}]};
 let i=0;
 const $=id=>document.getElementById(id);
 $("badge").textContent=D.month+"월 리포트";
@@ -94,16 +99,26 @@ function render(){
     ${s.areas.map(([n,sc])=>`<div class="bar"><div class="lab"><span>${esc(n)}${diff&&sc===mn?'<span class="tag weak">보완</span>':''}${diff&&sc===mx?'<span class="tag strong">강점</span>':''}</span><b>${sc}점</b></div><div class="track"><div class="fill ${diff&&sc===mn?'weak':''}" style="width:${sc}%"></div></div></div>`).join("")}
   </div>
   ${s.comment?`<div class="card"><h3>선생님 코멘트</h3><div class="note">${esc(s.comment)}</div></div>`:""}
+  ${attCard()}
   ${hwCard()}`;
+}
+function attCard(){
+  if(!D.att) return "";
+  const a=D.att, ab=a.filter(x=>x[1]==="absent").length, lt=a.length-ab;
+  if(!a.length) return `<div class="card"><h3>${D.month}월 출결</h3><div class="hwzero">결석·지각 <b>0회</b> 👏<br>한 번도 빠지지 않고 잘 다녔어요!</div></div>`;
+  return `<div class="card"><h3>${D.month}월 출결</h3>
+    <div class="hwsum"><div class="m"><b>${ab}</b><span>결석</span></div><div class="l"><b>${lt}</b><span>늦게 등원</span></div></div>
+    ${a.map(([d,st])=>`<div class="hwr att"><div class="d">${d}</div><span class="st ${st==="absent"?"miss":"late"}">${st==="absent"?"결석":"늦게 등원"}</span></div>`).join("")}
+  </div>`;
 }
 function hwCard(){
   if(!D.hw) return "";
-  const h=D.hw, n=h.length, miss=h.filter(x=>x[3]==="miss").length;
-  if(!n) return `<div class="card"><h3>${D.month}월 숙제 체크</h3><div class="hwzero">이번 달 숙제 미제출 <b>0회</b> 👏<br>매번 숙제를 잘 해왔어요!</div></div>`;
+  const h=D.hw, miss=h.filter(x=>x[3]==="miss").length, done=h.filter(x=>x[3]==="done").length, n=miss+done;
+  if(!h.length) return `<div class="card"><h3>${D.month}월 숙제 체크</h3><div class="hwzero">이번 달 숙제 미제출 <b>0회</b> 👏<br>매번 숙제를 잘 해왔어요!</div></div>`;
   return `<div class="card"><h3>${D.month}월 숙제 체크 <small>미제출 ${n}회</small></h3>
-    <div class="hwsum"><div><b>${n-miss}</b><span>학원에서 마저 완료</span></div><div class="m"><b>${miss}</b><span>미완료</span></div></div>
+    <div class="hwsum"><div><b>${done}</b><span>학원에서 마저 완료</span></div><div class="m"><b>${miss}</b><span>미완료</span></div></div>
     <div class="period">${D.month}월 1일 ~ 월말평가 전까지</div>
-    ${h.map(([d,sj,t,st])=>`<div class="hwr"><div class="d">${d} <span class="sj">${sj}</span></div><div class="t">${esc(t)}<br><span class="st ${st}">${st==="done"?"→ 학원에 남아서 다 하고 갔어요":"→ 다 못 하고 갔어요 (다음 수업 때 확인)"}</span></div></div>`).join("")}
+    ${h.map(([d,sj,t,st])=>`<div class="hwr"><div class="d">${d} <span class="sj">${sj}</span></div><div class="t">${esc(t)}<br><span class="st ${st==="absent"?"late":st}">${st==="done"?"→ 학원에 남아서 다 하고 갔어요":st==="absent"?"→ 결석해서 다음 수업 때 확인했어요":"→ 다 못 하고 갔어요 (다음 수업 때 확인)"}</span></div></div>`).join("")}
   </div>`;
 }
 render();
