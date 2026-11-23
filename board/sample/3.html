@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>세인보드 · 박○현 11월 리포트</title>
+<meta property="og:title" content="[세인 영어수학] 박○현 11월 학습리포트">
+<meta property="og:description" content="이번 달 월말평가 결과를 확인하세요.">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff1f8e;--pink-d:#d6006f;--pink-l:#ffe3f1;--pink-xl:#fff4fa;--ink:#1d1d24;--sub:#6b6b78;--line:#ececf1;--bg:#f7f7fa;--ok:#18a058;--warn:#ff8a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.app{max-width:440px;margin:0 auto;min-height:100vh;background:#fff;padding-bottom:30px}
+header{background:var(--pink);color:#fff;padding:18px 20px 22px;border-radius:0 0 24px 24px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:20px;letter-spacing:-.5px}
+.logo small{font-weight:500;font-size:12px;opacity:.85;margin-left:6px}
+.badge{font-size:11px;background:rgba(255,255,255,.22);padding:4px 9px;border-radius:20px}
+.student{margin-top:16px;display:flex;align-items:center;gap:12px}
+.avatar{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--pink);display:grid;place-items:center;font-weight:900;font-size:18px}
+.student b{font-size:17px}
+.student span{display:block;font-size:12px;opacity:.9;margin-top:2px}
+.subj{margin-top:16px;display:flex;background:rgba(255,255,255,.2);border-radius:12px;padding:4px}
+.subj button{flex:1;border:0;background:transparent;color:#fff;font:inherit;font-weight:700;font-size:15px;padding:9px;border-radius:9px;cursor:pointer}
+.subj button.on{background:#fff;color:var(--pink)}
+main{padding:18px 16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.card h3{font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.card h3 small{font-size:12px;color:var(--sub);font-weight:500}
+.sbj{font-size:11px;font-weight:700;background:var(--pink-l);color:var(--pink-d);padding:2px 7px;border-radius:6px;margin-left:4px;vertical-align:2px}
+.big{font-size:40px;font-weight:900;color:var(--pink);line-height:1;margin-bottom:6px}
+.big small{font-size:15px;color:var(--sub);font-weight:500}
+.bar{margin:12px 0}
+.bar .lab{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+.bar .lab b{font-weight:700}
+.track{height:10px;background:var(--pink-l);border-radius:6px;overflow:hidden}
+.fill{height:100%;background:var(--pink);border-radius:6px}
+.fill.weak{background:var(--warn)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:6px}
+.tag.weak{background:#fff1e0;color:var(--warn)}
+.tag.strong{background:#e6f6ed;color:var(--ok)}
+.note{background:var(--pink-xl);border-radius:12px;padding:13px;font-size:14px;line-height:1.65;white-space:pre-wrap}
+.hwzero{background:var(--pink-xl);border-radius:12px;padding:16px;text-align:center;font-size:14px;line-height:1.7}
+.hwzero b{color:var(--pink);font-size:18px}
+.hwsum{display:flex;gap:10px;margin-bottom:8px}
+.hwsum div{flex:1;background:#e6f6ed;border-radius:12px;padding:10px;text-align:center}
+.hwsum div.m{background:#fff1e0}
+.hwsum b{display:block;font-size:22px;font-weight:900;color:var(--ok)}
+.hwsum .m b{color:var(--warn)}
+.hwsum div.l{background:#eef3ff}
+.hwsum .l b{color:#2f6bff}
+.hwr .st.late{color:#2f6bff}
+.hwsum span{font-size:12px;color:var(--sub)}
+.period{font-size:12px;color:var(--sub);margin:4px 0 2px}
+.hwr{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.55}
+.hwr:last-child{border:0}
+.hwr.att{display:flex;justify-content:space-between;align-items:center;padding:9px 0}
+.hwr.att .d{margin:0}
+.hwr .d{font-weight:700;font-size:13px;margin-bottom:2px}
+.hwr .sj{font-size:11px;font-weight:700;background:var(--pink-l);color:var(--pink-d);padding:1px 6px;border-radius:5px;margin-left:4px}
+.hwr .st{font-size:13px;font-weight:700}
+.hwr .st.done{color:var(--ok)}
+.hwr .st.miss{color:var(--warn)}
+.foot{text-align:center;font-size:12px;color:#9a9aa6;margin-top:10px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="top"><div class="logo">세인보드<small>세인 영어수학</small></div><div class="badge" id="badge"></div></div>
+    <div class="student"><div class="avatar" id="av"></div><div><b id="nm"></b><span id="cls"></span></div></div>
+    <div class="subj" id="subj"></div>
+  </header>
+  <main id="view"></main>
+  <div class="foot">세인 영어수학 · 314-0907</div>
+</div>
+<script>
+const D={"name": "박○현", "month": 11, "hw": [["11월 4일", "영어", "단어장 미통과", "done"], ["11월 11일", "영어", "리딩 숙제", "done"], ["11월 18일", "영어", "문법 워크북 p.24~25", "done"], ["11월 20일", "영어", "단어장 미통과", "done"]], "att": [["11월 10일", "absent"]], "subjects": [{"subj": "영어", "cls": "UCLA", "areas": [["Reading", 85], ["Grammar", 75], ["단어", 90]], "comment": "단어는 꾸준히 잘 외워 와요. 문법은 시제 부분을 다음 달에 한 번 더 다질게요."}]};
+let i=0;
+const $=id=>document.getElementById(id);
+$("badge").textContent=D.month+"월 리포트";
+$("nm").textContent=D.name;
+$("av").textContent=D.name[0];
+const sb=$("subj");
+sb.style.display="none";
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function scoreCard(s){
+  const v=s.areas.map(a=>a[1]), avg=Math.round(v.reduce((x,y)=>x+y,0)/v.length);
+  const mn=Math.min(...v), mx=Math.max(...v), diff=mn!==mx;
+  return `<div class="card">
+    <h3><span>${D.month}월 월말평가 <span class="sbj">${s.subj}</span></span><small>${esc(s.cls)}반 · 영역별 100점</small></h3>
+    <div class="big">${avg}<small> 평균</small></div>
+    ${s.areas.map(([n,sc])=>`<div class="bar"><div class="lab"><span>${esc(n)}${diff&&sc===mn?'<span class="tag weak">보완</span>':''}${diff&&sc===mx?'<span class="tag strong">강점</span>':''}</span><b>${sc}점</b></div><div class="track"><div class="fill ${diff&&sc===mn?'weak':''}" style="width:${sc}%"></div></div></div>`).join("")}
+  </div>
+  ${s.comment?`<div class="card"><h3>${s.subj} 선생님 코멘트</h3><div class="note">${esc(s.comment)}</div></div>`:""}`;
+}
+function render(){
+  $("cls").textContent=D.subjects.map(s=>s.subj).join(" · ");
+  $("view").innerHTML=D.subjects.map(scoreCard).join("")+attCard()+hwCard();
+}
+function attCard(){
+  if(!D.att) return "";
+  const a=D.att, ab=a.filter(x=>x[1]==="absent").length, lt=a.length-ab;
+  if(!a.length) return `<div class="card"><h3>${D.month}월 출결</h3><div class="hwzero">결석·지각 <b>0회</b> 👏<br>한 번도 빠지지 않고 잘 다녔어요!</div></div>`;
+  return `<div class="card"><h3>${D.month}월 출결</h3>
+    <div class="hwsum"><div class="m"><b>${ab}</b><span>결석</span></div><div class="l"><b>${lt}</b><span>늦게 등원</span></div></div>
+    ${a.map(([d,st])=>`<div class="hwr att"><div class="d">${d}</div><span class="st ${st==="absent"?"miss":"late"}">${st==="absent"?"결석":"늦게 등원"}</span></div>`).join("")}
+  </div>`;
+}
+function hwCard(){
+  if(!D.hw) return "";
+  const h=D.hw, miss=h.filter(x=>x[3]==="miss").length, done=h.filter(x=>x[3]==="done").length, n=miss+done;
+  if(!h.length) return `<div class="card"><h3>${D.month}월 숙제 체크</h3><div class="hwzero">이번 달 숙제 미제출 <b>0회</b> 👏<br>매번 숙제를 잘 해왔어요!</div></div>`;
+  return `<div class="card"><h3>${D.month}월 숙제 체크 <small>미제출 ${n}회</small></h3>
+    <div class="hwsum"><div><b>${done}</b><span>학원에서 마저 완료</span></div><div class="m"><b>${miss}</b><span>미완료</span></div></div>
+    <div class="period">${D.month}월 1일 ~ 월말평가 전까지</div>
+    ${h.map(([d,sj,t,st])=>`<div class="hwr"><div class="d">${d} <span class="sj">${sj}</span></div><div class="t">${esc(t)}<br><span class="st ${st==="absent"?"late":st}">${st==="done"?"→ 학원에 남아서 다 하고 갔어요":st==="absent"?"→ 결석해서 다음 수업 때 확인했어요":"→ 다 못 하고 갔어요 (다음 수업 때 확인)"}</span></div></div>`).join("")}
+  </div>`;
+}
+render();
+</script>
+</body>
+</html>
