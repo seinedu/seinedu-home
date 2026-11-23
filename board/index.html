@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세인보드 · 김지우 11월 리포트</title>
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="[세인 영어수학] 김지우 11월 학습리포트">
+<meta property="og:description" content="영어·수학 학습진단, 숙제·습관, 성장리포트를 확인하세요.">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ff1f8e; --pink-d:#d6006f; --pink-l:#ffe3f1; --pink-xl:#fff4fa;
+  --ink:#1d1d24; --sub:#6b6b78; --line:#ececf1; --bg:#f7f7fa; --ok:#18a058; --warn:#ff8a00;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.app{max-width:440px;margin:0 auto;min-height:100vh;background:#fff;position:relative;padding-bottom:84px}
+header{background:var(--pink);color:#fff;padding:18px 20px 22px;border-radius:0 0 24px 24px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:20px;letter-spacing:-.5px}
+.logo small{font-weight:500;font-size:12px;opacity:.85;margin-left:6px}
+.badge{font-size:11px;background:rgba(255,255,255,.22);padding:4px 9px;border-radius:20px}
+.student{margin-top:16px;display:flex;align-items:center;gap:12px}
+.avatar{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--pink);display:grid;place-items:center;font-weight:900;font-size:18px}
+.student b{font-size:17px}
+.student span{display:block;font-size:12px;opacity:.9;margin-top:2px}
+.subj{margin-top:16px;display:flex;background:rgba(255,255,255,.2);border-radius:12px;padding:4px}
+.subj button{flex:1;border:0;background:transparent;color:#fff;font:inherit;font-weight:700;font-size:15px;padding:9px;border-radius:9px;cursor:pointer}
+.subj button.on{background:#fff;color:var(--pink)}
+main{padding:18px 16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.card h3{font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.card h3 small{font-size:12px;color:var(--sub);font-weight:500}
+.total{display:flex;align-items:center;gap:16px}
+.big{font-size:40px;font-weight:900;color:var(--pink);line-height:1}
+.big small{font-size:16px;color:var(--sub);font-weight:500}
+.delta{font-size:13px;font-weight:700}
+.up{color:var(--ok)} .down{color:#e5484d}
+.bar{margin:10px 0}
+.bar .lab{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+.bar .lab b{font-weight:700}
+.track{height:10px;background:var(--pink-l);border-radius:6px;overflow:hidden}
+.fill{height:100%;background:var(--pink);border-radius:6px;transition:width .5s}
+.fill.weak{background:var(--warn)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:6px}
+.tag.weak{background:#fff1e0;color:var(--warn)}
+.tag.strong{background:#e6f6ed;color:var(--ok)}
+.rub{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.rub:last-child{border:0}
+.dots{display:flex;gap:5px}
+.dot{width:13px;height:13px;border-radius:50%;background:var(--pink)}
+.dot.off{background:#fff;border:2px solid var(--pink-l)}
+.test{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.test:last-child{border:0}
+.score{font-weight:900;color:var(--pink)}
+.score.low{color:var(--warn)}
+.hw{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.hw:last-child{border:0}
+.chk{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid #d5d5de;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:900;margin-top:1px}
+.hw.done .chk{background:var(--pink);border-color:var(--pink)}
+.hw.done .t{text-decoration:line-through;color:var(--sub)}
+.hw .t{font-size:14px;font-weight:500}
+.hw .m{font-size:12px;color:var(--sub);margin-top:3px}
+.kind{font-size:10px;font-weight:900;padding:2px 6px;border-radius:5px;margin-right:5px;vertical-align:1px}
+.kind.in{background:#e8f0ff;color:#2f6bff}
+.kind.core{background:var(--pink-l);color:var(--pink-d)}
+.week{display:flex;justify-content:space-between;gap:6px;align-items:flex-end;height:110px;padding-top:8px}
+.wk{flex:1;text-align:center;font-size:11px;color:var(--sub)}
+.wk .col{margin:0 auto 6px;width:70%;background:var(--pink);border-radius:6px 6px 3px 3px}
+.wk .v{font-size:11px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.stamp{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.st{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;border:2px dashed var(--pink-l);color:#c9c9d3}
+.st.on{background:var(--pink);border:0;color:#fff}
+.note{background:var(--pink-xl);border-radius:12px;padding:13px;font-size:14px;line-height:1.65}
+.note b{color:var(--pink-d)}
+.rx{counter-reset:r}
+.rx li{list-style:none;position:relative;padding:8px 0 8px 32px;font-size:14px;line-height:1.5;border-bottom:1px solid var(--line)}
+.rx li:last-child{border:0}
+.rx li:before{counter-increment:r;content:counter(r);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:50%;background:var(--pink);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+.cmp{display:grid;grid-template-columns:1fr 60px 60px;font-size:13px;padding:7px 0;border-bottom:1px solid var(--line);align-items:center}
+.cmp.h{font-size:11px;color:var(--sub);font-weight:700}
+.cmp span:not(:first-child){text-align:right}
+.tier{display:inline-block;background:linear-gradient(135deg,#ffd36b,#ffb000);color:#5a3b00;font-weight:900;font-size:12px;padding:4px 10px;border-radius:20px}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:440px;background:#fff;border-top:1px solid var(--line);display:flex;padding:8px 0 14px}
+nav button{flex:1;border:0;background:none;font:inherit;font-size:12px;color:var(--sub);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
+nav button .ic{font-size:20px;filter:grayscale(1);opacity:.6}
+nav button.on{color:var(--pink);font-weight:700}
+nav button.on .ic{filter:none;opacity:1}
+.foot{text-align:center;font-size:11px;color:#b0b0bb;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="top">
+      <div class="logo">세인보드<small>세인 영어수학</small></div>
+      <div class="badge">11월 리포트</div>
+    </div>
+    <div class="student">
+      <div class="avatar">지</div>
+      <div><b>김지우</b><span id="cls"></span></div>
+    </div>
+    <div class="subj">
+      <button data-s="en" class="on">영어</button>
+      <button data-s="ma">수학</button>
+    </div>
+  </header>
+  <main id="view"></main>
+  <div class="foot">※ 샘플 학생 데이터로 만든 시안</div>
+  <nav>
+    <button data-t="diag" class="on"><span class="ic">📊</span>학습진단</button>
+    <button data-t="hw"><span class="ic">✅</span>숙제·습관</button>
+    <button data-t="rep"><span class="ic">📈</span>성장리포트</button>
+  </nav>
+</div>
+
+<script>
+const D = {
+  en: {
+    cls: "중2 · 영어 E-버클리반",
+    areas: [["단어",19],["독해",17],["문법",15],["영작(서술형)",11]],
+    prev:  [18,16,15,9],
+    rubTitle: "원서 스피킹", rubSub: "분기 1회 · 4점 만점",
+    rub: [["발음",4],["억양",3],["유창성",3],["내용 이해",4],["문장 구성",2],["자신감",3]],
+    testTitle: "Book Test", testSub: "원서 1권마다",
+    tests: [["Holes",92],["Wonder",88],["Charlotte's Web",95],["Number the Stars",74]],
+    hw: [
+      ["in","Holes Ch.10~12 따라 읽기 3번","원서 · 11/24(화)까지"],
+      ["core","Grammar Inside 2 p.48~51","문법 · 11/24(화)까지"],
+      ["core","단어 Walker Day 18 테스트 준비","단어 · 11/25(수)"],
+      ["in","영작: 나의 주말 5문장","서술형 · 11/26(목)"]
+    ],
+    weeks:[78,85,92,88,96],
+    noteName:"세인노트(문법 정리)", noteDone:9,
+    trend:[64,68,70,71,74,78],
+    comment:"단어·독해는 안정적으로 올라오고 있어요. <b>영작(서술형)</b>에서 시제·관계대명사 문장을 쓸 때 실수가 반복돼요. 원서 스피킹은 발음이 좋아졌고, 문장을 길게 이어 말하는 연습이 필요해요.",
+    rx:["영작 주 2회: 그날 배운 문법으로 3문장 쓰기","관계대명사 단원 주말 클리닉 참여","Number the Stars 재테스트(80점 목표)"],
+    tier:"Gold"
+  },
+  ma: {
+    cls: "중2 · 수학 M8반",
+    areas: [["계산",18],["개념",16],["응용",13],["서술형",10]],
+    prev:  [17,15,14,8],
+    rubTitle: "나도 1타강사 · 설명 평가", rubSub: "월 1회 · 4점 만점",
+    rub: [["개념 이해",4],["풀이 순서",3],["수학 용어",3],["설명 전달력",3],["질문 대응",2],["자신감",4]],
+    testTitle: "단원 테스트", testSub: "단원 끝날 때마다",
+    tests: [["유리수와 순환소수",95],["식의 계산",88],["일차부등식",84],["연립방정식",72]],
+    hw: [
+      ["core","쎈 B단계 연립방정식 1~24번","교재 · 11/24(화)까지"],
+      ["in","개념원리 p.88 개념 다시 읽고 예제 풀기","개념 · 11/24(화)까지"],
+      ["core","세인오답노트: 틀린 문제 5개 정리","오답 · 11/27(금)"],
+      ["in","서술형 3문제 풀이 과정 쓰기","서술형 · 11/26(목)"]
+    ],
+    weeks:[82,80,90,94,91],
+    noteName:"세인오답노트", noteDone:10,
+    trend:[61,66,65,69,70,72],
+    comment:"계산은 정확해졌어요. <b>연립방정식 응용</b>에서 식 세우기가 아직 약하고, 서술형에서 풀이 과정을 건너뛰는 습관이 있어요. 1타강사 발표 때 개념 설명은 아주 잘했어요.",
+    rx:["연립방정식 활용 문제 하루 3개, 식 세우기만 먼저","서술형은 풀이 과정을 단계별로 쓰기","연립방정식 단원 재테스트(85점 목표)"],
+    tier:"Silver"
+  }
+};
+const MONTHS=["6월","7월","8월","9월","10월","11월"];
+let S="en", T="diag";
+const done={en:[true,true,false,false],ma:[true,false,false,false]};
+const v=document.getElementById("view");
+
+function sum(a){return a.reduce((x,y)=>x+(Array.isArray(y)?y[1]:y),0)}
+
+function diag(d){
+  const tot=sum(d.areas), pt=sum(d.prev), df=tot-pt;
+  const min=Math.min(...d.areas.map(a=>a[1])), max=Math.max(...d.areas.map(a=>a[1]));
+  return `
+  <div class="card">
+    <h3>11월 월말평가 <small>영역마다 20점</small></h3>
+    <div class="total">
+      <div class="big">${tot}<small> / 80</small></div>
+      <div class="delta ${df>=0?'up':'down'}">지난달보다 ${df>=0?'▲':'▼'} ${Math.abs(df)}점</div>
+    </div>
+    ${d.areas.map(([n,s])=>`
+      <div class="bar"><div class="lab"><span>${n}${s===min?'<span class="tag weak">보완</span>':''}${s===max?'<span class="tag strong">강점</span>':''}</span><b>${s}/20</b></div>
+      <div class="track"><div class="fill ${s===min?'weak':''}" style="width:${s*5}%"></div></div></div>`).join("")}
+  </div>
+  <div class="card">
+    <h3>${d.rubTitle} <small>${d.rubSub}</small></h3>
+    ${d.rub.map(([n,s])=>`<div class="rub"><span>${n}</span><span class="dots">${[1,2,3,4].map(i=>`<i class="dot ${i>s?'off':''}"></i>`).join("")}</span></div>`).join("")}
+  </div>
+  <div class="card">
+    <h3>${d.testTitle} <small>${d.testSub}</small></h3>
+    ${d.tests.map(([n,s])=>`<div class="test"><span>${n}</span><span class="score ${s<80?'low':''}">${s}점${s<80?' · 재시험':''}</span></div>`).join("")}
+  </div>`;
+}
+
+function hw(d){
+  const dn=done[S], rate=Math.round(dn.filter(Boolean).length/dn.length*100);
+  return `
+  <div class="card">
+    <h3>이번 주 숙제 <small>${dn.filter(Boolean).length}/${dn.length} 완료 · ${rate}%</small></h3>
+    ${d.hw.map(([k,t,m],i)=>`
+      <div class="hw ${dn[i]?'done':''}" data-i="${i}">
+        <div class="chk">${dn[i]?'✓':''}</div>
+        <div><div class="t"><span class="kind ${k}">${k==='in'?'INPUT':'CORE'}</span>${t}</div><div class="m">${m}</div></div>
+      </div>`).join("")}
+  </div>
+  <div class="card">
+    <h3>주별 숙제 달성률 <small>최근 5주 · 평균 ${Math.round(sum(d.weeks)/d.weeks.length)}%</small></h3>
+    <div class="week">${d.weeks.map((w,i)=>`<div class="wk"><div class="v">${w}%</div><div class="col" style="height:${w*0.7}px"></div>${i+1}주</div>`).join("")}</div>
+  </div>
+  <div class="card">
+    <h3>${d.noteName} <small>완풀 챌린지 · 12주 중 ${d.noteDone}주</small></h3>
+    <div class="stamp">${Array.from({length:12},(_,i)=>`<div class="st ${i<d.noteDone?'on':''}">${i<d.noteDone?'완풀':i+1}</div>`).join("")}</div>
+  </div>`;
+}
+
+function rep(d){
+  const W=340,H=150,p=28, mn=50, mx=90;
+  const pts=d.trend.map((t,i)=>[p+i*(W-2*p)/(d.trend.length-1), H-24-(t-mn)/(mx-mn)*(H-48)]);
+  const path=pts.map((q,i)=>(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join(' ');
+  return `
+  <div class="card">
+    <h3>월별 성장 <small>총점 환산(100점)</small></h3>
+    <svg viewBox="0 0 ${W} ${H}" width="100%">
+      <path d="${path} L${pts.at(-1)[0]} ${H-24} L${pts[0][0]} ${H-24}Z" fill="#ffe3f1" opacity=".7"/>
+      <path d="${path}" fill="none" stroke="#ff1f8e" stroke-width="3" stroke-linejoin="round"/>
+      ${pts.map((q,i)=>`<circle cx="${q[0]}" cy="${q[1]}" r="${i===pts.length-1?6:4}" fill="${i===pts.length-1?'#ff1f8e':'#fff'}" stroke="#ff1f8e" stroke-width="2"/>
+      <text x="${q[0]}" y="${q[1]-11}" text-anchor="middle" font-size="11" font-weight="700" fill="#1d1d24">${d.trend[i]}</text>
+      <text x="${q[0]}" y="${H-6}" text-anchor="middle" font-size="11" fill="#6b6b78">${MONTHS[i]}</text>`).join("")}
+    </svg>
+  </div>
+  <div class="card">
+    <h3>영역별 변화 <span class="tier">${d.tier}</span></h3>
+    <div class="cmp h"><span>영역</span><span>10월</span><span>11월</span></div>
+    ${d.areas.map(([n,s],i)=>{const df=s-d.prev[i];return `<div class="cmp"><span>${n}</span><span>${d.prev[i]}</span><span class="${df>0?'up':df<0?'down':''}"><b>${s}</b> ${df>0?'▲':df<0?'▼':'–'}</span></div>`}).join("")}
+  </div>
+  <div class="card">
+    <h3>선생님 코멘트</h3>
+    <div class="note">${d.comment}</div>
+  </div>
+  <div class="card">
+    <h3>12월 처방 <small>다음 달에 다시 진단</small></h3>
+    <ol class="rx">${d.rx.map(r=>`<li>${r}</li>`).join("")}</ol>
+  </div>`;
+}
+
+function render(){
+  const d=D[S];
+  document.getElementById("cls").textContent=d.cls;
+  v.innerHTML = T==="diag"?diag(d):T==="hw"?hw(d):rep(d);
+  v.querySelectorAll(".hw").forEach(el=>el.onclick=()=>{const i=+el.dataset.i;done[S][i]=!done[S][i];render()});
+}
+document.querySelectorAll(".subj button").forEach(b=>b.onclick=()=>{
+  S=b.dataset.s;document.querySelectorAll(".subj button").forEach(x=>x.classList.toggle("on",x===b));render()});
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
+  T=b.dataset.t;document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x===b));window.scrollTo(0,0);render()});
+render();
+</script>
+</body>
+</html>
